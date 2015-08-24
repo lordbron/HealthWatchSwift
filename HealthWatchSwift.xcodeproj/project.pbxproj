@@ -13,6 +13,8 @@
 		C0D28EAA1B8126B6006D2A10 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C0D28EA91B8126B6006D2A10 /* Images.xcassets */; };
 		C0D28EAD1B8126B6006D2A10 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = C0D28EAB1B8126B6006D2A10 /* LaunchScreen.xib */; };
 		C0D28EB91B8126B6006D2A10 /* HealthWatchSwiftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0D28EB81B8126B6006D2A10 /* HealthWatchSwiftTests.swift */; };
+		C0D28EC41B81270F006D2A10 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C0D28EC31B81270F006D2A10 /* HealthKit.framework */; };
+		C0D28EC61B84762D006D2A10 /* DataTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0D28EC51B84762D006D2A10 /* DataTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +38,9 @@
 		C0D28EB21B8126B6006D2A10 /* HealthWatchSwiftTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HealthWatchSwiftTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0D28EB71B8126B6006D2A10 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C0D28EB81B8126B6006D2A10 /* HealthWatchSwiftTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthWatchSwiftTests.swift; sourceTree = "<group>"; };
+		C0D28EC21B81270F006D2A10 /* HealthWatchSwift.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = HealthWatchSwift.entitlements; sourceTree = "<group>"; };
+		C0D28EC31B81270F006D2A10 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
+		C0D28EC51B84762D006D2A10 /* DataTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,6 +48,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C0D28EC41B81270F006D2A10 /* HealthKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -59,6 +65,7 @@
 		C0D28E941B8126B6006D2A10 = {
 			isa = PBXGroup;
 			children = (
+				C0D28EC31B81270F006D2A10 /* HealthKit.framework */,
 				C0D28E9F1B8126B6006D2A10 /* HealthWatchSwift */,
 				C0D28EB51B8126B6006D2A10 /* HealthWatchSwiftTests */,
 				C0D28E9E1B8126B6006D2A10 /* Products */,
@@ -77,12 +84,14 @@
 		C0D28E9F1B8126B6006D2A10 /* HealthWatchSwift */ = {
 			isa = PBXGroup;
 			children = (
+				C0D28EC21B81270F006D2A10 /* HealthWatchSwift.entitlements */,
 				C0D28EA21B8126B6006D2A10 /* AppDelegate.swift */,
 				C0D28EA41B8126B6006D2A10 /* ViewController.swift */,
 				C0D28EA61B8126B6006D2A10 /* Main.storyboard */,
 				C0D28EA91B8126B6006D2A10 /* Images.xcassets */,
 				C0D28EAB1B8126B6006D2A10 /* LaunchScreen.xib */,
 				C0D28EA01B8126B6006D2A10 /* Supporting Files */,
+				C0D28EC51B84762D006D2A10 /* DataTableViewController.swift */,
 			);
 			path = HealthWatchSwift;
 			sourceTree = "<group>";
@@ -156,11 +165,18 @@
 		C0D28E951B8126B6006D2A10 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 0700;
 				LastUpgradeCheck = 0640;
 				ORGANIZATIONNAME = "Melissa Nierle";
 				TargetAttributes = {
 					C0D28E9C1B8126B6006D2A10 = {
 						CreatedOnToolsVersion = 6.4;
+						DevelopmentTeam = M4G5YD9DYL;
+						SystemCapabilities = {
+							com.apple.HealthKit = {
+								enabled = 1;
+							};
+						};
 					};
 					C0D28EB11B8126B6006D2A10 = {
 						CreatedOnToolsVersion = 6.4;
@@ -213,6 +229,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C0D28EA51B8126B6006D2A10 /* ViewController.swift in Sources */,
+				C0D28EC61B84762D006D2A10 /* DataTableViewController.swift in Sources */,
 				C0D28EA31B8126B6006D2A10 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -340,9 +357,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = HealthWatchSwift/HealthWatchSwift.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = HealthWatchSwift/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -350,9 +371,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = HealthWatchSwift/HealthWatchSwift.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = HealthWatchSwift/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
@@ -409,6 +434,7 @@
 				C0D28EBE1B8126B6006D2A10 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C0D28EBF1B8126B6006D2A10 /* Build configuration list for PBXNativeTarget "HealthWatchSwiftTests" */ = {
 			isa = XCConfigurationList;
@@ -417,6 +443,7 @@
 				C0D28EC11B8126B6006D2A10 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
